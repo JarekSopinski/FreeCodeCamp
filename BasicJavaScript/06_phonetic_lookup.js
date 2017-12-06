@@ -2,7 +2,6 @@
 function phoneticLookup(val) {
     var result = "";
 
-    // Only change code below this line
     /*switch(val) {
       case "alpha":
         result = "Adams";
@@ -33,7 +32,6 @@ function phoneticLookup(val) {
     };
     result = lookup[val];
 
-    // Only change code above this line
     return result;
 }
 

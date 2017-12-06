@@ -34,9 +34,36 @@ for (var i = 9; i > 0; i -= 2){
 
 var myArr = [ 2, 3, 4, 5, 6];
 
-// Only change code below this line
 var total = 0;
 
 for (var i = 0; i < myArr.length; i++) {
     total += myArr[i]; // total = 20
+}
+
+/*-------------------------------------------------*/
+
+/*Modify function multiplyAll so that it multiplies the product variable by
+each number in the sub-arrays of arr */
+
+function multiplyAll(arr) {
+    var product = 1;
+    for (var i=0; i < arr.length; i++) {
+        for (var j=0; j < arr[i].length; j++) {
+            product *= arr[i][j];
+        }
+    }
+    return product;
+}
+
+multiplyAll([[1,2],[3,4],[5,6,7]]);
+
+/*--------------------------------------------------*/
+//Push the numbers 0 through 4 to myArray using a while loop.
+
+var myArrayW = [];
+
+var w = 0;
+while(w < 5) {
+    myArrayW.push(w);
+    w++;
 }
