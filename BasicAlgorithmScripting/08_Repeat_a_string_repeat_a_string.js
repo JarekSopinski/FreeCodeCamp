@@ -12,4 +12,20 @@ function repeatStringNumTimes(str, num) {
     }
 }
 
-console.log(repeatStringNumTimes("abc", 3));
+console.log(repeatStringNumTimes("abc", 3)); //output: abcabcabc
+
+// Alternative solution with a for loop (AKA what would I do before ES6???)
+
+function repeatString(str, num) {
+    if (num > 0) {
+        var repeatedStr = '';
+        for (var i = 0; i < num; i++) {
+            repeatedStr += str;
+        }
+        return repeatedStr;
+    } else {
+        return '';
+    }
+}
+
+console.log(repeatString('Hey!', 4)); // output: Hey!Hey!Hey!Hey!
