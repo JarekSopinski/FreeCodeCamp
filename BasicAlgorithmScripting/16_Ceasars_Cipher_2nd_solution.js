@@ -1,4 +1,6 @@
 /*
+https://www.freecodecamp.org/challenges/caesars-cipher
+
 INSTRUCTIONS:
 One of the simplest and most widely known ciphers is a Caesar cipher, also known as
 a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount.
@@ -26,35 +28,6 @@ See also: https://en.wikipedia.org/wiki/ROT13
 
 ***********************************************************************
 
-ENCOUNTERED PROBLEMS AND HOW I SOLVED THEM:
-
-1) Przerobić stringa na tablicę;
-2) Puścić pętlę przez tę tablicę
---> Początek pętli
-3) W pętli przerobić każdy element tablicy na liczbę (charCodeAt)
-4) Potem odjąć od tej liczby 13
-5) Przerobić znowu na stringa (fromCharCode)
-6) Zlepić concatem
---> Wyjście z pętli
-7) Tablica wyników ze wszystkich iteracji jest konwertowana do stringa
---> Jak rozwiązać problem znaków innych niż alfabetyczne?
-(Prawdopodobnie trzeba zacząć wykonywanie pętli od warunku logicznego z wyrażeniem regularnym;
-jeżeli jest znak inny niż alfabetyczny, to pomija odejmowanie 13, w przeciwnym razie działa
-dalej)
-
-I break alphabet into to equal parts:
-(A, index = 65) to (M, index = 77)
-(N, index = 78) to (Z, index = 90)
-
-Jak rozwiązać problem liter, które są bliżej 65 niż 13 znaków??????
-Rozwiązanie: jeżeli funkcja jest mniejsza od danej liczby (na połowie alfabetu) to odejmujemy,
-w przeciwnym razie dodajemy????
-(ROT13 'przełamuje' alfabet na dwie równe połowy, tak ja widać to na grafice na Wiki:
-https://en.wikipedia.org/wiki/ROT13
-Prawdopodobnie można to wykorzystać do rozwiązania tego problemu)
-
-**********************************************************************
-
 METHODS USED IN THIS SOLUTION:
 
 1) .charCodeAt()
@@ -65,7 +38,10 @@ The following example returns 65, the Unicode value for A.
 'ABC'.charCodeAt(0); // returns 65
 'jArek'.charCodeAt(1); // 65
 
-2) .fromCharCode()
+All Unicode indexes can be found here:
+https://unicode-table.com/
+
+2) String.fromCharCode()
 The static String.fromCharCode() method returns a string created from
 the specified sequence of UTF-16 code units.
 
@@ -78,7 +54,18 @@ This works similar to .includes(), but .includes() doesn't work with regex.
 
 ********************************************************************
 
-FIRST STEP
+PROBLEMS I ENCOUNTERED:
+
+1) How to decode letters while not doing anything with non-alphabetical signs?
+Solution: .match() and regex
+
+2) ROT13 moves every letter backwards by 13 places. So what to do with first 13 letters?
+Solution: divide alphabet into two equal parts.
+
+********************************************************************
+
+FIRST STEP - Getting through non-alphabetical signs, dividing alphabet into two equal parts:
+
 Below I write a function (just a prototype at this point - thus its name is ended with '_testing')
 which first checks (using .match() and regex) if the value of 'letter' is actually a letter, and
 not some non-alphabetical sign.
@@ -91,6 +78,8 @@ I pass a result to a variable 'unicodeIndex'.
 
 Than I run a second test, to check if a letter represented by unicodeIndex belongs to the first part
 or the second part of alphabet.
+
+*******************************************************************
  */
 
 function decodeLetterInROT13_testing(letter) {
@@ -110,3 +99,76 @@ console.log(decodeLetterInROT13_testing('A')); // first part of alphabet
 console.log(decodeLetterInROT13_testing('N')); // second part of alphabet
 console.log(decodeLetterInROT13_testing('!')); // non-alphabetical sign, so the result is simply '!'
 
+/*
+*****************************************************************
+
+SECOND STEP - moving every letter forward or backward
+
+Now I write the actual function, modifying the prototype I've written above.
+
+I use the fact that ROT13 breaks alphabet into two equal parts
+(see image at https://en.wikipedia.org/wiki/ROT13):
+
+(A, index = 65) to (M, index = 77)
+(N, index = 78) to (Z, index = 90)
+
+So, if a letter belongs to a first part, I move the index 13 places forward, to the second part.
+Otherwise, I move the index 13 places backwards, to the first part.
+In each case I pass the result to a variable 'newIndex'.
+
+Than I use String.fromCharCode() method, to which I pass 'newIndex' as an argument.
+This method converts Unicode index into it's corresponding letter.
+ */
+
+function decodeLetterInROT13(letter) {
+    if (letter.match(/[\W_]/g)) {
+        return letter
+    } else {
+        let unicodeIndex = letter.charCodeAt(0);
+        let newIndex;
+        if (unicodeIndex <= 77) {
+            newIndex = unicodeIndex + 13;
+            return String.fromCharCode(newIndex);
+        } else {
+            newIndex = unicodeIndex - 13;
+            return String.fromCharCode(newIndex)
+        }
+    }
+}
+
+console.log(decodeLetterInROT13('A')); // N
+console.log(decodeLetterInROT13('N')); // A
+console.log(decodeLetterInROT13('!')); // non-alphabetical sign, so the result is simply '!'
+console.log(decodeLetterInROT13(' ')); // returns empty space
+
+/*
+************************************************************************
+
+THIRD STEP - decoding whole sentence:
+
+Finally, I can use the same function that I created during 1st attempt.
+Again, as in 1st attempt, I use decodeLetterInROT13() function in a loop, which runs through
+every letter in a sentence.
+ */
+
+function decodeStringInROT13(str) {
+    // I change a string passed to a str argument into an array:
+    let codedArray = str.split('');
+    let decodedArray = []; //this array will contain letters decoded in every iteration
+    // I run a loop through codedArray:
+    for (let i = 0; i < codedArray.length; i++) {
+        let newLetter;
+        // I use previously created function and pass it every letter as an argument
+        // function returns decoded letter, which is than passed to newLettter variable
+        newLetter = decodeLetterInROT13(codedArray[i]);
+        // all decoded letters are passed to previously created array using .concat()
+        decodedArray = decodedArray.concat(newLetter);
+    } // end of loop
+    let decodedString = decodedArray.join(''); // array is converted back to a string
+    return decodedString
+}
+
+console.log(decodeStringInROT13('SERR PBQR PNZC')); // FREE CODE CAMP
+console.log(decodeStringInROT13('SERR CVMMN!')); // FREE PIZZA!
+console.log(decodeStringInROT13('GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.'));
+// THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX.
