@@ -18,6 +18,15 @@ rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.")
 should decode to "THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX."
 */
 
+/*
+NOTE: This solution is not very elegant; it needs almost 100 lines of switch statement code.
+Thus the second solution (see Ceasars_Cipher_2nd_solution.js file), based on Unicode, seems to
+be a lot better.
+On the other hand, an advantage of this solution is the fact that it can be easily modified into
+coding function witch changes each letter into totally random letter or number (or any other sign).
+So this time the cipher would be much harder to break - opposing to ROT13, which is very easy to decode.
+ */
+
 function decodeLetterInROT13(letter) {
     let decodedLetter;
     switch (letter) {
