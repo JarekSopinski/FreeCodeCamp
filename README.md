@@ -1,7 +1,5 @@
 # FreeCodeCamp
-Exercises done during InfoShare Academy front-end course.
-This repo does not include intermediate and advanced FCC projects,
-which will be placed in their own repos.
+Exercises and projects done during FreeCodeCamp front-end course.
 
 ### CatPhotoApp
 Layout for a very simple mobile app.
@@ -10,10 +8,14 @@ Layout for a very simple mobile app.
 Basic jQuery exercises.
 
 ### Tribute Page
-Simple tribute page about Ursula K. Le Guin. Built with Bootstrap 4.0.
+Simple tribute page built with Bootstrap 4.0.
 
 ### Basic JavaScript
-Various simple JS exercises.
+Various simple vanilla JS exercises.
 
-###Basic Algorithm Scripting
+### Basic Algorithm Scripting
 Basic algorithm problems solved using JavaScript.
+
+### Intermediate Algorithm Scripting
+Intermediate algorithm problems solved using JavaScript.
+
