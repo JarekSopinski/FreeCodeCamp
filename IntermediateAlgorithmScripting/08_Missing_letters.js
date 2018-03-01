@@ -12,30 +12,32 @@ fearNotLetter("yz") should return undefined.
 function fearNotLetter(string) {
 
     // The key to solution will be comparing string (argument) with the alphabet. But first we need to know at
-    // which point to start and finish iterating through the alphabet.
+    // which point to start iterating through the alphabet.
 
-    // For starters, let's declare two arrays which will be compared:
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
     const letters = string.split('');
 
-    // Now we need to get start and end index. Converting string to UTF-16 indexes will be useful:
-    let indexes = [];
-
-    // We create an array of UTF-16 indexes:
-    letters.map(letter => {
-        const index = letter.charCodeAt(0);
-        indexes = indexes.concat(index)
-    });
-
-    // And now we can get indexes corresponding to first and last letter:
-    const startIndex = Math.min(...indexes);
-    const endIndex = Math.max(...indexes);
-    console.log(`First letter: ${String.fromCharCode(startIndex)}`);
-    console.log(`Last letter: ${String.fromCharCode(endIndex)}`);
-
     // We need to cut out the right part of the alphabet:
+    const startLetter = letters[0];
+    const alphabetStart = alphabet.indexOf(startLetter);
+    const partOfAlphabet = alphabet.substring(alphabetStart).split('');
+
+    // Looking for a difference:
+
+    let missingLetter;
+
+    // We compare 'letters' to 'partOfAlphabet'; the first different iteration will be the missing letter.
+    for (let i = 0; i < letters.length; i++) {
+        if (letters[i] !== partOfAlphabet[i]) {
+            missingLetter = partOfAlphabet[i];
+            break // Loop needs to stop after getting result, or else missing letter would be the last letter
+        }
+    }
+
+    return missingLetter
 
 }
 
-console.log(fearNotLetter('abce'));
+console.log(fearNotLetter('abc')); // undefined
+console.log(fearNotLetter('bde')); // c
 
