@@ -36,18 +36,18 @@ function translatePigLatin(string) {
 
         // Below we find the first index at which a vowel appears:
 
-        const indOfA = letters.indexOf('a');
-        const indOfE = letters.indexOf('e');
-        const indOfI = letters.indexOf('i');
-        const indOfO = letters.indexOf('o');
-        const indOfU = letters.indexOf('u');
+        const indexOfA = letters.indexOf('a');
+        const indexOfE = letters.indexOf('e');
+        const indexOfI = letters.indexOf('i');
+        const indexOfO = letters.indexOf('o');
+        const indexOfU = letters.indexOf('u');
 
         // we find indexes of all vowels and concat them into one array:
         // (of course, some vowels won't be found, so we'll get -1)
-        const indexes = [].concat(indOfA, indOfE, indOfI, indOfO, indOfU);
+        const indexes = [].concat(indexOfA, indexOfE, indexOfI, indexOfO, indexOfU);
         console.log(`indexes of all vowels are ${indexes}`);
 
-        // we have to eliminate or negative results (-1):
+        // we have to eliminate negative results (-1):
         const indexesOverZero = indexes.filter(i => {return i>0});
         console.log(`indexes greater then zero are ${indexesOverZero}`);
 
