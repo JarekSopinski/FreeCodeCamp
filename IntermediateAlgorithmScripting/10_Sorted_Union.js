@@ -14,3 +14,38 @@ uniteUnique([1, 3, 2], [1, [5]], [2, [4]]) should return [1, 3, 2, [5], [4]].
 uniteUnique([1, 2, 3], [5, 2, 1]) should return [1, 2, 3, 5].
 uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) should return [1, 2, 3, 5, 4, 6, 7, 8].
  */
+
+/*
+STEPS:
+1) Use arguments object to merge all arrays into one;
+2) Use .filter() on that array to filter out all repeated values.
+ */
+
+function uniteUnique(array) {
+
+    // We put all arguments into a single array:
+    const argsArray = Array.from(arguments);
+
+    // They're still in sub arrays; we need to merge them into one:
+    const mergedArray = [];
+
+    argsArray.forEach(subArray => {
+        mergedArray.push(...subArray)
+    });
+
+    // All numbers are merged within one array, meaning first part is solved.
+    // Now we need to remove all repeated values.
+
+    return mergedArray.filter((item, position) => {
+        return mergedArray.indexOf(item) === position;
+    });
+
+    // Above, we use .filter() to iterate over the mergedArray.
+    // For each element, we check if its first position is equal to current position.
+    // This is false for repeated items, so they're removed.
+}
+
+
+console.log( uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]) );
+console.log( uniteUnique([1, 3, 2], [1, [5]], [2, [4]]) );
+console.log( uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) );
