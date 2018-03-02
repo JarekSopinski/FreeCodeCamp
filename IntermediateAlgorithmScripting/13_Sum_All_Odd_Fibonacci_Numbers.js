@@ -25,7 +25,7 @@ function sumFibs(num) {
     fibSequence[0] = 0;
     fibSequence[1] = 1;
 
-    // The loop starts at two and over each iteration adds a previous number two a number before previous:
+    // The loop starts at two and over each iteration adds a previous number to a number before previous:
     for (let i = 2; i <= num; i++) {
         fibSequence[i] = fibSequence[i - 2] + fibSequence[i - 1];
         // All numbers from Fibonacci sequence are stored inside previously declared 'numbers' array:
