@@ -1,4 +1,7 @@
 /*
+https://www.freecodecamp.org/challenges/diff-two-arrays
+
+INSTRUCTIONS FROM FCC:
 Compare two arrays and return a new array with any items only found in one of the two given arrays,
 but not both. In other words, return the symmetric difference of the two arrays.
 
@@ -19,17 +22,18 @@ function diffArray (arr1, arr2) {
 
 }
 
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]); // returns 4
+diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]);
+// returns ["pink wool", "diorite"]
+diffArray(["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"]);
+// returns an empty array
 
 /*
+EXPLANATION:
 Solution is very similar to 'Seek and Destroy' from basic level, only this time we have to compare
 two arrays against each other, than concat results from each comparison.
+
+DIFFICULTY: 2.5/10
  */
-
-
-console.log( diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]) ); // returns 4
-console.log( diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]) );
-// returns ["pink wool", "diorite"]
-console.log( diffArray(["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"]) );
-// returns an empty array
 
 

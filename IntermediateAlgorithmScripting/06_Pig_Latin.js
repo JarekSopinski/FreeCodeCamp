@@ -1,4 +1,6 @@
 /*
+https://www.freecodecamp.org/challenges/pig-latin
+
 INSTRUCTIONS FROM FCC:
 Translate the provided string to pig latin.
 
@@ -45,25 +47,25 @@ function translatePigLatin(string) {
         // we find indexes of all vowels and concat them into one array:
         // (of course, some vowels won't be found, so we'll get -1)
         const indexes = [].concat(indexOfA, indexOfE, indexOfI, indexOfO, indexOfU);
-        console.log(`indexes of all vowels are ${indexes}`);
+        //console.log(`indexes of all vowels are ${indexes}`);
 
         // we have to eliminate negative results (-1):
         const indexesOverZero = indexes.filter(i => {return i>0});
-        console.log(`indexes greater then zero are ${indexesOverZero}`);
+        //console.log(`indexes greater then zero are ${indexesOverZero}`);
 
         // we use Math.min to find the lowest (first) index:
         const indexOfFirstVowel = Math.min(...indexesOverZero);
-        console.log(`index of first vowel is ${indexOfFirstVowel}`);
+        //console.log(`index of first vowel is ${indexOfFirstVowel}`);
 
         // Finally, we got our index! Now we can use 'indexOfFirstVowel' variable to manipulate our string:
 
         // we pass all letters placed BEFORE the first vowel to a variable. This will be needed later.
         const lettersBeforeVowel = string.substring(0, indexOfFirstVowel);
-        console.log(`lettersBeforeVowel: ${lettersBeforeVowel}`);
+        //console.log(`lettersBeforeVowel: ${lettersBeforeVowel}`);
 
         // and now we do the same with all letters placed AFTER the first vowel (including this vowel):
         const lettersAfterVowel = string.substring(indexOfFirstVowel);
-        console.log(`lettersAfterVowel: ${lettersAfterVowel}`);
+        //console.log(`lettersAfterVowel: ${lettersAfterVowel}`);
 
         // For the final result we simply merge new strings in a proper way:
         return lettersAfterVowel + lettersBeforeVowel + 'ay'
@@ -72,8 +74,20 @@ function translatePigLatin(string) {
 
 }
 
-console.log( translatePigLatin("california") );
-console.log( translatePigLatin("paragraphs") );
-console.log( translatePigLatin("glove") );
-console.log( translatePigLatin("algorithm") );
-console.log( translatePigLatin("eight") );
+translatePigLatin("california"); //"aliforniacay"
+translatePigLatin("paragraphs"); //"aragraphspay"
+translatePigLatin("glove"); //"oveglay"
+translatePigLatin("algorithm"); //"algorithmway"
+translatePigLatin("eight"); //"eightway"
+
+/*
+EXPLANATION:
+
+The whole code is divided into two conditional blocks.
+The first block is very easy - if a word begins with an vowel, we simply add "way" at the end.
+The case of words which begin with consonants is a lot harder. You can find detailed explanation in comments above.
+Also, you can uncomment all console.logs for a better understanding.
+
+DIFFICULTY: 6.5/10
+
+ */

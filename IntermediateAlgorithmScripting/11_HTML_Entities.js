@@ -1,15 +1,8 @@
 /*
+https://www.freecodecamp.org/challenges/convert-html-entities
+
 INSTRUCTIONS FROM FCC:
-
 Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
-
-convertHTML("Dolce & Gabbana") should return Dolce &​amp; Gabbana.
-convertHTML("Hamburgers < Pizza < Tacos") should return Hamburgers &​lt; Pizza &​lt; Tacos.
-convertHTML("Sixty > twelve") should return Sixty &​gt; twelve.
-convertHTML('Stuff in "quotation marks"') should return Stuff in &​quot;quotation marks&​quot;.
-convertHTML("Shindler's List") should return Shindler&​apos;s List.
-convertHTML("<>") should return &​lt;&​gt;.
-convertHTML("abc") should return abc.
  */
 
 function convertHTML(string) {
@@ -23,9 +16,16 @@ function convertHTML(string) {
 
 }
 
-console.log( convertHTML("Dolce & Gabbana") );
-console.log( convertHTML("Hamburgers < Pizza < Tacos") );
-console.log( convertHTML("Sixty > twelve") );
-console.log( convertHTML('Stuff in "quotation marks"') );
-console.log( convertHTML("Shindler's List") );
-console.log( convertHTML("<>") );
+convertHTML("Dolce & Gabbana"); //Dolce &​amp; Gabbana
+convertHTML("Hamburgers < Pizza < Tacos"); //Hamburgers &​lt; Pizza &​lt; Tacos
+convertHTML("Sixty > twelve"); //Sixty &​gt; twelve
+convertHTML('Stuff in "quotation marks"'); //Stuff in &​quot;quotation marks&​quot;
+convertHTML("Shindler's List"); //Shindler&​apos;s List
+convertHTML("<>"); //&​lt;&​gt;
+
+/*
+EXPLANATION:
+We simply use .replace() method to convert every possible character into its corresponding entity.
+
+DIFFICULTY: 2/10
+ */

@@ -1,4 +1,6 @@
 /*
+https://www.freecodecamp.org/challenges/dna-pairing
+
 INSTRUCTIONS FROM FCC:
 
 The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
@@ -22,23 +24,17 @@ T-A
 G-C
  */
 
-function pairElement(string) {
+const pairElement = string => {
 
-    // we declare an empty array which will be the main (first-level) array:
+
     const firstLevelArray = [];
-
-    // we split string into an array of letters:
     const letters = string.split('');
 
     for (let i = 0; i < letters.length; i++) {
 
-        // inside for loop, we split an array into smaller chunks (each containing one letter):
         const subArray = letters.slice(i, i+1);
-
-        // ATM we have only first pair of a DNA strand:
         const firstPart = subArray[0];
 
-        // using switch statement, we push the correct second part to subArray:
         switch (firstPart) {
             case 'A':
                 subArray.push('T');
@@ -54,17 +50,30 @@ function pairElement(string) {
                 break
         }
 
-        // all chunks are pushed to main array:
         firstLevelArray.push(subArray)
 
     } // end of loop
 
     return firstLevelArray
 
-}
+};
 
-console.log( pairElement("ATCGA") );
-console.log( pairElement("TTGAG") );
-console.log( pairElement("CTCTA") );
+pairElement("ATCGA"); //[["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]]
+pairElement("TTGAG"); //[["T","A"],["T","A"],["G","C"],["A","T"],["G","C"]]
+pairElement("CTCTA"); //[["C","G"],["T","A"],["C","G"],["T","A"],["A","T"]]
+
+/*
+EXPLANATION:
+
+1) We declare an empty array (firstLevelArray) which will be the main (first-level) array;
+2) We split a string passed inside argument into an array of letters and run a loop through it;
+3) Inside our for loop we split an array into smaller chunks (each containing one letter):
+4) Variable firstPart keeps first pair of a DNA strand;
+5) We use switch statement to push the correct second part to subArray;
+6) All chunks are pushed to main array.
+
+DIFFICULTY: 4.5 /10
+
+ */
 
 

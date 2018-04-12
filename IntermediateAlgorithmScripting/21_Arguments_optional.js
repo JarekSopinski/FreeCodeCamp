@@ -1,4 +1,5 @@
 /*
+https://www.freecodecamp.org/challenges/arguments-optional
 INSTRUCTIONS FROM FCC:
 
 Create a function that sums two arguments together.
@@ -21,17 +22,25 @@ addTogether(2)([3]) should return undefined.
 
 function addTogether() {
 
-    const [a, b] = arguments; // we use destructuring to pass arguments to variables
+    const [a, b] = arguments;
     const isNumber = (num) => typeof(num) === 'number';
-    // we declare a function which will be used as a callback to check if argument is a number
 
-    if (arguments.length === 1 && isNumber(a)) { // if we have only one arg that is a proper number...
+    if (arguments.length === 1 && isNumber(a)) {
         return (c) => {return isNumber(c) ? a + c : undefined}}
-        // ...than we run anonymous function which awaits third argument and adds this argument to the first argument
-        // (we also check is this new argument is a proper number)
         else {return isNumber(a) && isNumber(b) ? a + b : undefined}
-        // otherwise, when there are two arguments, we simply add them (after running check with isNumber() )
 }
+
+/*
+EXPLANATION:
+
+1) We use destructuring to pass arguments to variables (a, b);
+2) We declare a function which will be used as a callback to check if argument is a number ( isNumber() );
+3) If we have only one arg that is a proper number we run anonymous function which awaits third argument and adds this argument to the first argument
+(we also check is this new argument is a proper number);
+4) Otherwise, when there are two arguments, we simply add them (after running check with isNumber() ).
+
+DIFFICULTY: 4/10
+ */
 
 
 

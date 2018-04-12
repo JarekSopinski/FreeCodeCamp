@@ -1,4 +1,6 @@
 /*
+https://www.freecodecamp.org/challenges/search-and-replace
+
 INSTRUCTIONS:
 
 Perform a search and replace on the sentence using the arguments provided and return the new sentence.
@@ -12,34 +14,45 @@ For example if you mean to replace the word "Book" with the word "dog", it shoul
 
 */
 
-function myReplace(oldSentence, oldWord, newWord) {
+const myReplace = (oldSentence, oldWord, newWord) => {
 
-    // finding index of newWord in oldSentence
-    let arrayFromString = oldSentence.toUpperCase().split(' ');
-    let indexOfString = arrayFromString.indexOf(oldWord.toUpperCase());
+    const arrayFromString = oldSentence.toUpperCase().split(' ');
+    const indexOfString = arrayFromString.indexOf(oldWord.toUpperCase());
 
-    // getting first letter of oldWord to check if it's uppercased
     let originalWord = oldSentence.split(' ')[indexOfString];
     let firstLetterOfOriginalWord = originalWord.split('')[0];
-    //console.log(firstLetterOfOriginalWord);
 
-    // checking if first letter is in uppercase;
     let isUpperCased;
-    firstLetterOfOriginalWord === firstLetterOfOriginalWord.toUpperCase() ? isUpperCased = true : isUpperCased = false;
+    firstLetterOfOriginalWord === firstLetterOfOriginalWord.toUpperCase() ?
+        isUpperCased = true
+        :
+        isUpperCased = false;
 
-    // if isUpperCased returns true, we change first letter:
-    isUpperCased ? newWord = newWord.charAt(0).toUpperCase() + newWord.slice(1) : null;
-    //console.log(newWord);
+    isUpperCased ?
+        newWord = newWord.charAt(0).toUpperCase() + newWord.slice(1)
+        :
+        null;
 
-    // replacing oldWord with newWord (uppercased or not)
-    let newSentenceArray = oldSentence.split(' ');
+    const newSentenceArray = oldSentence.split(' ');
     newSentenceArray[indexOfString] = newWord;
     return newSentenceArray.join(' ');
 
-}
+};
 
 // Notice the difference between 'jumped' in each check (uppercase and lowercase):
-console.log( myReplace("A quick brown fox Jumped over the lazy dog", "jumped", "leaped") );
+myReplace("A quick brown fox Jumped over the lazy dog", "jumped", "leaped");
 // returns 'A quick brown fox Leaped over the lazy dog'
-console.log( myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped") );
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 // returns 'A quick brown fox leaped over the lazy dog'
+
+/*
+EXPLANATION:
+
+1) We look for an index of a newWord in oldSentence (19-20);
+2) We get first letter of oldWord to check if it's capitalized (22-23);
+3) We check if first letter is capitalized (25-26);
+4) If isUpperCased returns true, we change first letter (28):
+5) We replace oldWord with newWord (capitalized or not).
+
+DIFFICULTY: 5/10
+ */

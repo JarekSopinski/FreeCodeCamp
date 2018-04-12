@@ -1,4 +1,6 @@
 /*
+https://www.freecodecamp.org/challenges/wherefore-art-thou
+
 INSTRUCTIONS:
 
 Make a function that looks through an array of objects (first argument) and returns an array of all
@@ -13,10 +15,9 @@ property and its value, that was passed on as the second argument.
 
  */
 
-function whatIsInAName(collection, source) {
+const whatIsInAName = (collection, source) => {
 
     let sourceKeys = Object.keys(source);
-    //console.log(sourceKeys);
 
     return collection.filter(collectionObject => {
 
@@ -27,12 +28,13 @@ function whatIsInAName(collection, source) {
         })
 
     });
-}
+};
 
 
-console.log(whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 }));
-console.log( whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }) );
-
+whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 });
+// [ {a: 1, b: 2}, {a: 1, b: 2, c: 2} ]
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+// [ {first: "Tybalt", last: "Capulet"} ]
 /*
 EXPLANATION:
 
@@ -40,4 +42,6 @@ EXPLANATION:
 2) Collection (first argument) is filtered using .filter method;
 3) The filter method returns every (.every() method) object which has the source's keys and values; keys are checked using
 .hasOwnProperty() method, and values are check by '===' comparison.
+
+DIFFICULTY: 7.5/10
  */

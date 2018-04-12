@@ -1,10 +1,12 @@
 /*
-INSTRUCTIONS:
+https://www.freecodecamp.org/challenges/roman-numeral-converter
+
+INSTRUCTIONS FROM FCC:
 Convert the given number into a roman numeral.
 All roman numerals answers should be provided in upper-case.
  */
 
-function convertToRoman(arabicNumber) {
+const convertToRoman = arabicNumber => {
 
     typeof(arabicNumber) !== 'number' ? alert("You didn't pass a number!") : null;
     // checking if an argument is a number, otherwise returning error message
@@ -44,11 +46,11 @@ function convertToRoman(arabicNumber) {
 
     return romanNumber
 
-}
+};
 
-console.log( convertToRoman(3) );
-console.log( convertToRoman(36) );
-console.log( convertToRoman(2018) );
+convertToRoman(99); // "XCIX"
+convertToRoman(500); // "D"
+convertToRoman(3999); // "MMMCMXCIX"
 
 /*
 EXPLANATION:
@@ -61,7 +63,9 @@ If this value wasn't decreased, roman symbols would be added infinitely.
 5) If the value decreases beyond key's value, a while loop ends and a for loop moves to a lower roman symbol.
 Than a while loop can run again on a lower key's value.
 
-!!!Uncomment all console logs and carefully read through all logs for a better understanding of this process!!!
+Uncomment all console logs and carefully read through all logs for a better understanding of this process!
+
+DIFFICULTY: 8.5/10 (no doubt the hardest of all challenges from first two levels)
  */
 
 
