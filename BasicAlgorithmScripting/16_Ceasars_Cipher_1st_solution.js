@@ -1,5 +1,7 @@
 /*
-INSTRUCTIONS:
+https://www.freecodecamp.org/challenges/caesars-cipher
+
+INSTRUCTIONS FROM FCC:
 One of the simplest and most widely known ciphers is a Caesar cipher, also known as
 a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount.
 
@@ -18,16 +20,7 @@ rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.")
 should decode to "THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX."
 */
 
-/*
-NOTE: This solution is not very elegant; it needs almost 100 lines of switch statement code.
-Thus the second solution (see Ceasars_Cipher_2nd_solution.js file), based on Unicode, seems to
-be a lot better.
-On the other hand, an advantage of this solution is the fact that it can be easily modified into
-coding function witch changes each letter into totally random letter or number (or any other sign).
-So this time the cipher would be much harder to break - opposing to ROT13, which is very easy to decode.
- */
-
-function decodeLetterInROT13(letter) {
+const decodeLetterInROT13 = letter => {
     let decodedLetter;
     switch (letter) {
         case 'N':
@@ -113,28 +106,54 @@ function decodeLetterInROT13(letter) {
             decodedLetter = letter;
     }
     return decodedLetter
-}
+};
 
-function decodeStringInROT13(str) {
-    // I change a string passed to a str argument into an array:
-    let codedArray = str.split('');
-    let decodedArray = []; //this array will contain letters decoded in every iteration
-    // I run a loop through codedArray:
+const decodeStringInROT13 = str => {
+
+    const codedArray = str.split('');
+    let decodedArray = [];
+
     for (let i = 0; i < codedArray.length; i++) {
-        let newLetter;
-        // I use previously created function and pass it every letter as an argument
-        // function returns decoded letter, which is than passed to newLettter variable
-        newLetter = decodeLetterInROT13(codedArray[i]);
-        // all decoded letters are passed to previously created array using .concat()
-        decodedArray = decodedArray.concat(newLetter);
-    } // end of loop
-    let decodedString = decodedArray.join(''); // array is converted back to a string
-    return decodedString
-}
 
-console.log(decodeStringInROT13('SERR PBQR PNZC')); // FREE CODE CAMP
-console.log(decodeStringInROT13('SERR CVMMN!')); // FREE PIZZA!
-console.log(decodeStringInROT13('GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.'));
+        let newLetter;
+        newLetter = decodeLetterInROT13(codedArray[i]);
+        decodedArray = decodedArray.concat(newLetter);
+
+    } // end of loop
+
+    return decodedArray.join('');
+};
+
+decodeStringInROT13('SERR PBQR PNZC'); // FREE CODE CAMP
+decodeStringInROT13('SERR CVMMN!'); // FREE PIZZA!
+decodeStringInROT13('GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.');
 // THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX.
+
+/*
+EXPLANATION:
+
+1) We create a function which switches every letter for a different letter.
+This will be used as a callback in out main function;
+2) Now we move to the decodeStringInROT13 function;
+3) We change a string passed to a str argument into an array of letters;
+4) We declare decodedArray, which will contain letters decoded in every iteration;
+5) We run a for loop through codedArray;
+6) On every iteration we use our previously created callback and pass it every letter as an argument;
+7) Callback returns decoded letter, which is than passed to newLettter variable;
+8) All decoded letters are passed to previously created array using .concat();
+9) We return array joined into a string.
+
+DIFFICULTY: 4/10
+
+IMPORTANT NOTE:
+
+This solution is not very elegant; it needs almost 100 lines of switch statement code.
+Thus the second solution (see Ceasars_Cipher_2nd_solution.js file), based on Unicode, seems to
+be a lot better.
+On the other hand, an advantage of this solution is the fact that it can be easily modified into
+coding function witch changes each letter into totally random letter or number (or any other sign).
+So this time the cipher would be much harder to break - opposing to ROT13, which is very easy to decode.
+
+ */
 
 

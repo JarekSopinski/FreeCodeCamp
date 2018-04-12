@@ -1,63 +1,36 @@
 /*
-INSTRUCTIONS:
-Return the length of the longest word in the provided sentence.
+https://www.freecodecamp.org/challenges/find-the-longest-word-in-a-string
 
+INSTRUCTIONS FROM FCC:
+Return the length of the longest word in the provided sentence.
 Your response should be a number.
+
+findLongestWord("The quick brown fox jumped over the lazy dog") should return 6.
  */
 
 
-function findLongestWord(str) {
-    var wordsArray = str.split(' ');
-    var strLength = 0;
-    for (var i = 0; i < wordsArray.length; i++) {
-        if (wordsArray[i].length > strLength) {
-            strLength = wordsArray[i].length;
+const findLongestWord = (str) => {
+    const wordsArray = str.split(' ');
+    let longestWordLength = 0;
+    for (let i = 0; i < wordsArray.length; i++) {
+        if (wordsArray[i].length > longestWordLength) {
+            longestWordLength = wordsArray[i].length;
         }
     }
-    return strLength;
-}
+    return longestWordLength;
+};
 
 
-console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); // output: 6 ('jumped')
+findLongestWord("The quick brown fox jumped over the lazy dog"); // returns: 6 ('jumped')
 
 /*
-ALTERNATIVE SOLUTIONS:
+EXPLANATION:
+1) We split a string into an array of words.
+2) We declare variable longestWordLength, which will be used to compare lengths.
+It's initialized with 0.
+3) We run a for loop and on every iteration we compare length of a current word with a value
+of longestWordLength. If it's bigger, we change variable's value.
+4) A loop stops and we return final value of longestWordLength.
 
-/////////////// Using .reduce() /////////////////////
-
-function findLongestWord(s) {
-  return s.split(' ')
-    .reduce(function(x, y) {
-      return Math.max(x, y.length)
-    }, 0);
-}
-
-/////////////Using recursiveness//////////////////////
-
-function findLongestWord(str) {
-
-  //split the string into individual words
-  //(important!!, you'll see why later)
-  str = str.split(" ");
-
-  //str only has 1 element left that is the longest element,
-  //return the length of that element
-  if(str.length == 1){
-    return str[0].length;
-  }
-
-  //if the first element's length is greater than the second element's (or equal)
-  //remove the second element and recursively call the function)
-  if(str[0].length >= str[1].length){
-    str.splice(1,1);
-    return findLongestWord(str.join(" "));
-  }
-
-  //if the second element's length is greater thant the first element's start
-  //call the function past the first element
-  if(str[0].length <= str[1].length){
-    // from the first element to the last element inclusive.
-    return findLongestWord(str.slice(1,str.length).join(" "));
-  }
-}
+DIFFICULTY: 2/10
  */

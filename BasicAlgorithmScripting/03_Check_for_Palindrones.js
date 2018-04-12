@@ -1,5 +1,6 @@
 /*
-INSTRUCTIONS:
+https://www.freecodecamp.org/challenges/check-for-palindromes
+INSTRUCTIONS FROM FCC:
 Return true if the given string is a palindrome. Otherwise, return false.
 
 A palindrome is a word or sentence that's spelled the same way both forward and backward,
@@ -12,15 +13,26 @@ turn everything lower case in order to check for palindromes.
 We'll pass strings with varying formats, such as "racecar", "RaceCar", and "race CAR" among others.
 
 We'll also pass strings with special symbols, such as "2A3*3a2", "2A3 3a2", and "2_A3*3#A2".
+
+palindrome("eye") should return true.
+palindrome("not a palindrome") should return false.
  */
 
 
-function palindrome(str) {
+const palindrome = (str) => {
     str = str.replace(/[\W_]/g, '').toLowerCase();
-    var reversedString = str.split('').reverse().join('');
+    const reversedString = str.split('').reverse().join('');
     return reversedString === str;
-}
+};
 
 
 console.log(palindrome("Ya *&^ y")); //true
 console.log(palindrome("No ^%$ t")); //false
+
+/*
+EXPLANATION:
+First, we use regex to lowercase all capital letters.
+Then we reverse a string and check if it's equal to initial string.
+
+DIFFICULTY: 2/10
+ */

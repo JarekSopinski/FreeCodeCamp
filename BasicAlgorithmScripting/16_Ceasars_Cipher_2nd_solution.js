@@ -1,7 +1,7 @@
 /*
 https://www.freecodecamp.org/challenges/caesars-cipher
 
-INSTRUCTIONS:
+INSTRUCTIONS FROM FCC:
 One of the simplest and most widely known ciphers is a Caesar cipher, also known as
 a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount.
 A common modern use is the ROT13 cipher, where the values of the letters are
@@ -66,7 +66,7 @@ Solution: divide alphabet into two equal parts.
 
 FIRST STEP - Getting through non-alphabetical signs, dividing alphabet into two equal parts:
 
-Below I write a function (just a prototype at this point - thus its name is ended with '_testing')
+Below I write a function (just a prototype at this point - thus its name is ended with '_proto')
 which first checks (using .match() and regex) if the value of 'letter' is actually a letter, and
 not some non-alphabetical sign.
 
@@ -82,22 +82,24 @@ or the second part of alphabet.
 *******************************************************************
  */
 
-function decodeLetterInROT13_testing(letter) {
+const decodeLetterInROT13_proto = letter => {
+
     if (letter.match(/[\W_]/g)) {
         return letter
     } else {
-        let unicodeIndex = letter.charCodeAt(0);
+        const unicodeIndex = letter.charCodeAt(0);
         if (unicodeIndex <= 77) {
             return 'first part of alphabet'
         } else {
             return 'second part of alphabet'
         }
     }
-}
 
-console.log(decodeLetterInROT13_testing('A')); // first part of alphabet
-console.log(decodeLetterInROT13_testing('N')); // second part of alphabet
-console.log(decodeLetterInROT13_testing('!')); // non-alphabetical sign, so the result is simply '!'
+};
+
+decodeLetterInROT13_proto('A'); // first part of alphabet
+decodeLetterInROT13_proto('N'); // second part of alphabet
+decodeLetterInROT13_proto('!'); // non-alphabetical sign, so the result is simply '!'
 
 /*
 *****************************************************************
@@ -124,7 +126,7 @@ function decodeLetterInROT13(letter) {
     if (letter.match(/[\W_]/g)) {
         return letter
     } else {
-        let unicodeIndex = letter.charCodeAt(0);
+        const unicodeIndex = letter.charCodeAt(0);
         let newIndex;
         if (unicodeIndex <= 77) {
             newIndex = unicodeIndex + 13;
@@ -136,39 +138,39 @@ function decodeLetterInROT13(letter) {
     }
 }
 
-console.log(decodeLetterInROT13('A')); // N
-console.log(decodeLetterInROT13('N')); // A
-console.log(decodeLetterInROT13('!')); // non-alphabetical sign, so the result is simply '!'
-console.log(decodeLetterInROT13(' ')); // returns empty space
+decodeLetterInROT13('A'); // N
+decodeLetterInROT13('N'); // A
+decodeLetterInROT13('!'); // non-alphabetical sign, so the result is simply '!'
+decodeLetterInROT13(' '); // returns empty space
 
 /*
 ************************************************************************
 
 THIRD STEP - decoding whole sentence:
 
-Finally, I can use the same function that I created during 1st attempt.
+Finally, I can use the same function which I created during 1st attempt.
 Again, as in 1st attempt, I use decodeLetterInROT13() function in a loop, which runs through
 every letter in a sentence.
  */
 
-function decodeStringInROT13(str) {
-    // I change a string passed to a str argument into an array:
-    let codedArray = str.split('');
-    let decodedArray = []; //this array will contain letters decoded in every iteration
-    // I run a loop through codedArray:
+const decodeStringInROT13 = str => {
+
+    const codedArray = str.split('');
+    let decodedArray = [];
+
     for (let i = 0; i < codedArray.length; i++) {
         let newLetter;
-        // I use previously created function and pass it every letter as an argument
-        // function returns decoded letter, which is than passed to newLettter variable
         newLetter = decodeLetterInROT13(codedArray[i]);
-        // all decoded letters are passed to previously created array using .concat()
         decodedArray = decodedArray.concat(newLetter);
-    } // end of loop
-    let decodedString = decodedArray.join(''); // array is converted back to a string
-    return decodedString
-}
+    }
+
+    return decodedArray.join('');
+
+};
 
 console.log(decodeStringInROT13('SERR PBQR PNZC')); // FREE CODE CAMP
 console.log(decodeStringInROT13('SERR CVMMN!')); // FREE PIZZA!
 console.log(decodeStringInROT13('GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.'));
 // THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX.
+
+// DIFFICULTY: 6/10
