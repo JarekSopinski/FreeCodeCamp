@@ -1,6 +1,6 @@
 ## FreeCodeCamp algorithm challenges
 
-> Solutions to JavaScript algorithm challenges ("bonfires") from [FreeCodeCamp's] (https://www.freecodecamp.org) Front End Development certification.
+> Solutions to JavaScript algorithm challenges ("bonfires") from FreeCodeCamp's Front End Development certification.
 
 ---
 
@@ -12,14 +12,14 @@ This repository consists of:
 * Detailed, step-by-step explanations;
 * Difficulty rating.
 
-If you are not familiar with FCC: these challenges are somehow similar to CodeWars katas. They consist mostly of strings & arrays manipulations ((i.e. flattening nested array) and classic mathematical challenges, like finding smallest common multiple or all primes in a range. Of course, most of them can be solved in a countless variety of ways; I used many different techniques, like recursion, loops, array methods, regex and so on. Difficulty range is quite huge - some challenges are extremly easy and can be solved instantly, while otheres took me a lot of hours (even days!) to solve.
+If you are not familiar with FCC: these challenges are somehow similar to CodeWars katas. They consist mostly of strings & arrays manipulations (i.e. flattening nested array) and classic mathematical challenges, like finding smallest common multiple or all primes in a range. Of course, most of them can be solved in a variety of ways; I used many different techniques, like recursion, loops, array methods, regex and so on. Difficulty range is quite huge - some challenges are extremly easy and can be solved instantly, while otheres took me a lot of hours (even days!) to solve.
 
 ---
 
 ### Basic Algorithm Scripting
 
 1. [Reverse a string](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/01_ReverseString.js)
-2. [Factorialize number] (https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/02_Factorialize_A_Number.js)
+2. [Factorialize number](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/02_Factorialize_A_Number.js)
 3. [Check for palindrones](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/03_Check_for_Palindrones.js)
 4. [Find the longest word](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/04_Find_the_longest_word.js)
 5. [Title case a sentence](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/05_Title_case_a_sentence.js)
@@ -28,10 +28,10 @@ If you are not familiar with FCC: these challenges are somehow similar to CodeWa
 8. [Repeat a string repeat a string](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/08_Repeat_a_string_repeat_a_string.js)
 9. [Truncate a string](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/09_Truncate_a_string.js)
 10. [Chunky monkey](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/10_Chunky_Monkey.js)
-11. [Slasher flick] (https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/11_Slasher_Flick.js)
+11. [Slasher flick](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/11_Slasher_Flick.js)
 12. [Mutations](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/12_Mutations.js)
-13. [Falsy bouncer] (https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/13_Falsy_Bouncer.js)
-14. [Seek and destroy] (https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/14_Seek_and_Destroy.js)
+13. [Falsy bouncer](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/13_Falsy_Bouncer.js)
+14. [Seek and destroy](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/14_Seek_and_Destroy.js)
 15. [Where do I belong](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/15_Where_do_I_belong.js)
 16. (A) [Ceasar's Cipher - 1st (worse) solution](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/16_Ceasars_Cipher_1st_solution.js)
 16. (B) [Ceasar's Cipher - 2nd (better) solution](https://github.com/JarekSopinski/FreeCodeCamp_algorithm_challenges/blob/master/BasicAlgorithmScripting/16_Ceasars_Cipher_2nd_solution.js)
