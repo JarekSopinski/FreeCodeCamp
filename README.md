@@ -2,7 +2,6 @@
 
 > Solutions to JavaScript algorithm challenges ("bonfires") from FreeCodeCamp's Front End Development certification.
 
----
 
 ### About
 
@@ -12,7 +11,7 @@ This repository consists of:
 * Detailed, step-by-step explanations;
 * Difficulty rating.
 
-If you are not familiar with FCC: these challenges are somehow similar to CodeWars katas. They consist mostly of strings & arrays manipulations (i.e. flattening nested array) and classic mathematical challenges, like finding smallest common multiple or all primes in a range. Of course, most of them can be solved in a variety of ways; I used many different techniques, like recursion, loops, array methods, regex and so on. Difficulty range is quite huge - some challenges are extremly easy and can be solved instantly, while otheres took me a lot of hours (even days!) to solve.
+If you are not familiar with FCC: these challenges are somehow similar to CodeWars katas. They consist mostly of strings & arrays manipulations (i.e. flattening nested array) and classic mathematical challenges, like finding smallest common multiple or all primes in a range. Of course, most of them can be solved in a variety of ways; I used many different techniques, like recursion, loops, array methods, regex and so on. Difficulty range is quite huge - some challenges are extremly easy and can be solved instantly, while others took me a lot of hours (even days!) to solve.
 
 ---
 
