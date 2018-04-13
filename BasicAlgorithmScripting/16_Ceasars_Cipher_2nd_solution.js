@@ -149,23 +149,21 @@ decodeLetterInROT13(' '); // returns empty space
 THIRD STEP - decoding whole sentence:
 
 Finally, I can use the same function which I created during 1st attempt.
-Again, as in 1st attempt, I use decodeLetterInROT13() function in a loop, which runs through
-every letter in a sentence.
+Again, as in 1st attempt, I use decodeLetterInROT13() function as a callback inside .forEach()
+method, changing every letter in a sentence and joining them into a new string.
  */
 
-const decodeStringInROT13 = str => {
+const decodeStringInROT13 = initialString => {
 
-    const codedArray = str.split('');
-    let decodedArray = [];
+    const initialArray = initialString.split('');
+    const newArray = [];
 
-    for (let i = 0; i < codedArray.length; i++) {
-        let newLetter;
-        newLetter = decodeLetterInROT13(codedArray[i]);
-        decodedArray = decodedArray.concat(newLetter);
-    }
+    initialArray.forEach(letter => {
+        const newLetter = decodeLetterInROT13(letter);
+        newArray.push(newLetter);
+    });
 
-    return decodedArray.join('');
-
+    return newArray.join('');
 };
 
 console.log(decodeStringInROT13('SERR PBQR PNZC')); // FREE CODE CAMP

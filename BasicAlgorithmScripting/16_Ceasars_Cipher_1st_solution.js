@@ -108,20 +108,17 @@ const decodeLetterInROT13 = letter => {
     return decodedLetter
 };
 
-const decodeStringInROT13 = str => {
+const decodeStringInROT13 = initialString => {
 
-    const codedArray = str.split('');
-    let decodedArray = [];
+    const initialArray = initialString.split('');
+    const newArray = [];
 
-    for (let i = 0; i < codedArray.length; i++) {
+    initialArray.forEach(letter => {
+        const newLetter = decodeLetterInROT13(letter);
+        newArray.push(newLetter);
+    });
 
-        let newLetter;
-        newLetter = decodeLetterInROT13(codedArray[i]);
-        decodedArray = decodedArray.concat(newLetter);
-
-    } // end of loop
-
-    return decodedArray.join('');
+    return newArray.join('');
 };
 
 decodeStringInROT13('SERR PBQR PNZC'); // FREE CODE CAMP
@@ -135,12 +132,12 @@ EXPLANATION:
 1) We create a function which switches every letter for a different letter.
 This will be used as a callback in out main function;
 2) Now we move to the decodeStringInROT13 function;
-3) We change a string passed to a str argument into an array of letters;
-4) We declare decodedArray, which will contain letters decoded in every iteration;
-5) We run a for loop through codedArray;
+3) We change a string passed to a initialString argument into an array of letters;
+4) We declare newArray, which will contain letters decoded in every iteration;
+5) We run a forEach method through codedArray;
 6) On every iteration we use our previously created callback and pass it every letter as an argument;
 7) Callback returns decoded letter, which is than passed to newLettter variable;
-8) All decoded letters are passed to previously created array using .concat();
+8) All decoded letters are passed to previously created array;
 9) We return array joined into a string.
 
 DIFFICULTY: 4/10
